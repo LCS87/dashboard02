@@ -1,0 +1,729 @@
+/* ========== RESPONSIVE CSS - Standard Breakpoints ========== */
+/* Breakpoints padrão da indústria:
+   - XL Desktop:    > 1440px
+   - Desktop:       1024px - 1440px
+   - Tablet:        768px - 1024px
+   - Mobile:        480px - 768px
+   - Small Mobile:  < 480px
+*/
+
+/* ========== Base Variables para Responsividade ========== */
+:root {
+  --sidebar-width-collapsed: 64px;
+  --sidebar-width-expanded: 280px;
+  --sidebar-width-tablet: 240px;
+  --header-height: 60px;
+}
+
+/* ========== XL Desktop (> 1440px) ========== */
+@media (min-width: 1441px) {
+  .main .block-container {
+    max-width: 1400px !important;
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+    padding-top: 2rem !important;
+  }
+  
+  [data-testid="stSidebar"] {
+    width: var(--sidebar-width-expanded) !important;
+    min-width: var(--sidebar-width-expanded) !important;
+    max-width: var(--sidebar-width-expanded) !important;
+  }
+  
+  .main .block-container {
+    margin-left: var(--sidebar-width-expanded) !important;
+  }
+}
+
+/* ========== Desktop (1024px - 1440px) ========== */
+@media (max-width: 1440px) and (min-width: 1025px) {
+  .main .block-container {
+    max-width: 1200px !important;
+    padding-left: 2.5rem !important;
+    padding-right: 2.5rem !important;
+    padding-top: 2rem !important;
+  }
+  
+  [data-testid="stSidebar"] {
+    width: var(--sidebar-width-expanded) !important;
+    min-width: var(--sidebar-width-expanded) !important;
+    max-width: var(--sidebar-width-expanded) !important;
+  }
+  
+  .main .block-container {
+    margin-left: var(--sidebar-width-expanded) !important;
+  }
+  
+  h1 { font-size: 2rem !important; }
+  h2 { font-size: 1.5rem !important; }
+  h3 { font-size: 1.25rem !important; }
+}
+
+/* ========== Tablet (768px - 1024px) ========== */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .main .block-container {
+    max-width: 100% !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    padding-top: 1.5rem !important;
+  }
+  
+  [data-testid="stSidebar"] {
+    width: var(--sidebar-width-tablet) !important;
+    min-width: var(--sidebar-width-tablet) !important;
+    max-width: var(--sidebar-width-tablet) !important;
+  }
+  
+  .main .block-container {
+    margin-left: var(--sidebar-width-tablet) !important;
+  }
+  
+  h1 { font-size: 1.75rem !important; }
+  h2 { font-size: 1.4rem !important; }
+  h3 { font-size: 1.2rem !important; }
+  
+  [data-testid="stMetric"] {
+    padding: 1rem !important;
+  }
+  
+  [data-testid="stMetricValue"] {
+    font-size: 2rem !important;
+  }
+  
+  [data-testid="stMetricLabel"] {
+    font-size: 0.8rem !important;
+  }
+  
+  .js-plotly-plot {
+    max-height: 350px !important;
+  }
+  
+  .stButton > button {
+    font-size: 0.85rem !important;
+    padding: 0.6rem 1.2rem !important;
+  }
+  
+  .stTabs [data-baseweb="tab"] {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .stSelectbox > div > div,
+  .stMultiSelect > div > div {
+    min-width: 200px;
+  }
+}
+
+/* ========== Mobile (480px - 768px) ========== */
+@media (max-width: 768px) {
+  /* Main container */
+  .main .block-container {
+    padding: 1rem 1rem !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+  }
+  
+  /* Typography */
+  h1 { font-size: 1.5rem !important; line-height: 1.3 !important; }
+  h2 { font-size: 1.25rem !important; line-height: 1.3 !important; }
+  h3 { font-size: 1.1rem !important; line-height: 1.3 !important; }
+  p, span, label { font-size: 0.9375rem !important; }
+  
+  /* Metric Cards - Grid 2 colunas */
+  [data-testid="stMetric"] {
+    padding: 1rem !important;
+    margin-bottom: 0.75rem !important;
+    min-width: 0 !important;
+  }
+  
+  [data-testid="stMetricValue"] {
+    font-size: 1.75rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  [data-testid="stMetricLabel"] {
+    font-size: 0.75rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  [data-testid="stMetricDelta"] {
+    font-size: 0.8rem !important;
+  }
+  
+  /* Grid de métricas: 2 colunas no mobile */
+  .stHorizontalBlock {
+    flex-wrap: wrap !important;
+  }
+  
+  .stHorizontalBlock > div {
+    flex: 1 1 calc(50% - 0.5rem) !important;
+    min-width: 140px !important;
+  }
+  
+  /* Charts */
+  .js-plotly-plot {
+    max-height: 300px !important;
+    min-height: 250px !important;
+  }
+  
+  /* ========== Sidebar Mobile - Overlay ========== */
+  [data-testid="stSidebar"] {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100vh !important;
+    z-index: 1000 !important;
+    background: var(--sidebar-bg, #F4F7F5) !important;
+    border-right: 1px solid var(--sidebar-border, #D0DAD4) !important;
+    transform: translateX(-100%) !important;
+    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+    width: var(--sidebar-width-expanded) !important;
+    min-width: var(--sidebar-width-expanded) !important;
+    max-width: var(--sidebar-width-expanded) !important;
+    box-shadow: 4px 0 24px rgba(0,0,0,0.15) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  
+  /* Sidebar aberta */
+  [data-testid="stSidebar"].expanded,
+  [data-testid="stSidebar"][aria-expanded="true"],
+  [data-testid="stSidebar"][data-open="true"] {
+    transform: translateX(0) !important;
+    box-shadow: 4px 0 24px rgba(0,0,0,0.15) !important;
+  }
+  
+  /* Overlay de fundo quando sidebar aberta */
+  .sidebar-overlay {
+    display: none !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(0,0,0,0.4) !important;
+    z-index: 999 !important;
+  }
+  
+  .sidebar-overlay.visible {
+    display: block !important;
+  }
+  
+  /* Botão toggle fixo */
+  .sidebar-toggle-btn,
+  button[key="sidebar_toggle_btn"],
+  button[aria-label*="sidebar" i],
+  button[aria-label*="menu" i],
+  button[aria-label*="expandir" i],
+  button[aria-label*="recolher" i] {
+    position: fixed !important;
+    top: 1rem !important;
+    left: 1rem !important;
+    z-index: 1001 !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 8px !important;
+    background: var(--primary, #C46A2B) !important;
+    color: white !important;
+    border: none !important;
+    font-size: 1.25rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+    transition: all 0.2s ease !important;
+  }
+  
+  .sidebar-toggle-btn:hover,
+  button[key="sidebar_toggle_btn"]:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2) !important;
+  }
+  
+  /* Esconder conteúdo da sidebar quando fechada */
+  [data-testid="stSidebar"]:not(.expanded):not([aria-expanded="true"]):not([data-open="true"]) .sidebar-content,
+  [data-testid="stSidebar"]:not(.expanded):not([aria-expanded="true"]):not([data-open="true"]) .stMarkdown,
+  [data-testid="stSidebar"]:not(.expanded):not([aria-expanded="true"]):not([data-open="true"]) .stSelectbox,
+  [data-testid="stSidebar"]:not(.expanded):not([aria-expanded="true"]):not([data-open="true"]) .stMultiSelect,
+  [data-testid="stSidebar"]:not(.expanded):not([aria-expanded="true"]):not([data-open="true"]) .stButton,
+  [data-testid="stSidebar"]:not(.expanded):not([aria-expanded="true"]):not([data-open="true"]) .stExpander,
+  [data-testid="stSidebar"]:not(.expanded):not([aria-expanded="true"]):not([data-open="true"]) .stFileUploader,
+  [data-testid="stSidebar"]:not(.expanded):not([aria-expanded="true"]):not([data-open="true"]) .stCaption,
+  [data-testid="stSidebar"]:not(.expanded):not([aria-expanded="true"]):not([data-open="true"]) hr {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+  
+  /* Ícones de navegação quando recolhida */
+  .sidebar-nav-icons {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 1rem 0 !important;
+  }
+  
+  .sidebar-nav-icons > div {
+    font-size: 1.5rem !important;
+    color: var(--text-primary, #1A2820) !important;
+    padding: 0.75rem !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+  }
+  
+  .sidebar-nav-icons > div:hover {
+    background: var(--hover, #E4ECE6) !important;
+    color: var(--primary, #C46A2B) !important;
+  }
+  
+  /* Manter botão toggle sempre visível */
+  [data-testid="stSidebar"] button[key="sidebar_toggle_btn"] {
+    display: block !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    margin: 0.5rem 1rem !important;
+    justify-content: center !important;
+  }
+  
+  /* Tabs empilhadas */
+  .stTabs [data-baseweb="tab-list"] {
+    flex-direction: column !important;
+    gap: 0.25rem !important;
+    width: 100% !important;
+  }
+  
+  .stTabs [data-baseweb="tab"] {
+    width: 100% !important;
+    text-align: left !important;
+    border-radius: 8px !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  /* Botões full width */
+  .stButton > button {
+    width: 100% !important;
+    min-height: 44px !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  /* Selectbox e multiselect full width */
+  .stSelectbox > div > div,
+  .stMultiSelect > div > div {
+    width: 100% !important;
+    min-height: 44px !important;
+  }
+  
+  /* Dataframe scroll horizontal */
+  .stDataFrame {
+    overflow-x: auto !important;
+  }
+  
+  .stDataFrame [data-testid="stTable"] {
+    min-width: 600px;
+  }
+  
+  /* File uploader */
+  .stFileUploader {
+    padding: 1.5rem !important;
+  }
+  
+  .stFileUploader > label {
+    font-size: 0.875rem !important;
+  }
+  
+  /* Expander */
+  .streamlit-expanderHeader {
+    padding: 1rem !important;
+    font-size: 0.9375rem !important;
+  }
+  
+  /* Metric cards - grid 2 colunas */
+  .stHorizontalBlock {
+    flex-wrap: wrap !important;
+    gap: 0.75rem !important;
+  }
+  
+  .stHorizontalBlock > div[data-testid="stHorizontalBlock"] > div,
+  .stHorizontalBlock > div {
+    flex: 1 1 calc(50% - 0.375rem) !important;
+    min-width: 140px !important;
+    max-width: calc(50% - 0.375rem) !important;
+  }
+  
+  [data-testid="stMetric"] {
+    padding: 1rem !important;
+    margin-bottom: 0.75rem !important;
+    min-width: 0 !important;
+  }
+  
+  [data-testid="stMetricValue"] {
+    font-size: 1.75rem !important;
+  }
+  
+  [data-testid="stMetricLabel"] {
+    font-size: 0.75rem !important;
+  }
+  
+  [data-testid="stMetricDelta"] {
+    font-size: 0.8rem !important;
+  }
+  
+  /* File uploader text */
+  .stFileUploader > label {
+    font-size: 0.875rem !important;
+  }
+  
+  /* Expander */
+  .streamlit-expanderHeader {
+    padding: 1rem !important;
+    font-size: 0.9375rem !important;
+  }
+}
+
+/* ========== Small Mobile (< 480px) ========== */
+@media (max-width: 480px) {
+  .main .block-container {
+    padding: 0.75rem 0.75rem !important;
+  }
+  
+  h1 { font-size: 1.375rem !important; }
+  h2 { font-size: 1.125rem !important; }
+  h3 { font-size: 1rem !important; }
+  
+  [data-testid="stMetricValue"] {
+    font-size: 1.5rem !important;
+  }
+  
+  [data-testid="stMetricLabel"] {
+    font-size: 0.7rem !important;
+  }
+  
+  .stTabs [data-baseweb="tab"] {
+    padding: 10px 12px !important;
+    font-size: 0.85rem !important;
+  }
+  
+  .stButton > button {
+    padding: 10px 16px !important;
+    font-size: 0.85rem !important;
+  }
+  
+  [data-testid="stMetric"] {
+    padding: 0.75rem !important;
+  }
+  
+  .stTabs [data-baseweb="tab"] {
+    padding: 8px 10px !important;
+    font-size: 0.8rem !important;
+  }
+  
+  /* Métricas em coluna única no mobile muito pequeno */
+  .stHorizontalBlock > div {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .stTabs [data-baseweb="tab-list"] {
+    gap: 0.125rem !important;
+  }
+}
+
+/* ========== Landscape Mobile ========== */
+@media (max-height: 500px) and (orientation: landscape) {
+  [data-testid="stSidebar"] {
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+  
+  .main .block-container {
+    padding-top: 1rem !important;
+  }
+  
+  [data-testid="stMetric"] {
+    padding: 0.75rem !important;
+  }
+  
+  .js-plotly-plot {
+    max-height: 250px !important;
+  }
+}
+
+/* ========== Touch Devices ========== */
+@media (hover: none) and (pointer: coarse) {
+  .stButton > button {
+    min-height: 44px;
+    padding: 12px 20px;
+  }
+  
+  .stSelectbox > div > div,
+  .stMultiSelect > div > div {
+    min-height: 44px;
+  }
+  
+  [data-testid="stSidebar"] {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .js-plotly-plot {
+    touch-action: pan-x pan-y;
+  }
+  
+  .stTabs [data-baseweb="tab"] {
+    min-height: 44px;
+    padding: 12px 16px;
+  }
+  
+  [data-testid="stMetric"] {
+    min-height: 100px;
+  }
+  
+  .stTabs [data-baseweb="tab"] {
+    min-height: 44px;
+  }
+  
+  .stSelectbox > div > div,
+  .stMultiSelect > div > div {
+    min-height: 44px;
+  }
+}
+
+/* ========== Print Styles ========== */
+@media print {
+  [data-testid="stSidebar"],
+  .stButton,
+  .stSelectbox,
+  .stMultiSelect,
+  .stFileUploader,
+  .sidebar-toggle-btn,
+  .stTabs [data-baseweb="tab-list"],
+  .sidebar-toggle-btn,
+  .sidebar-overlay {
+    display: none !important;
+  }
+  
+  .main .block-container {
+    padding: 0 !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+  }
+  
+  .js-plotly-plot {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  
+  .stMetric {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  
+  body {
+    background: white !important;
+  }
+  
+  .stApp {
+    background: white !important;
+  }
+  
+  [data-testid="stSidebar"] {
+    display: none !important;
+  }
+}
+
+/* ========== High Contrast Mode ========== */
+@media (prefers-contrast: high) {
+  :root {
+    --border: #000 !important;
+    --text-primary: #000 !important;
+    --primary: #000 !important;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.5) !important;
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.5) !important;
+  }
+  
+  [data-testid="stSidebar"] {
+    border-right: 2px solid #000 !important;
+  }
+  
+  [data-testid="stMetric"] {
+    border: 2px solid #000 !important;
+  }
+  
+  .stButton > button {
+    border: 2px solid currentColor !important;
+  }
+}
+
+/* ========== Reduced Motion ========== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .js-plotly-plot {
+    animation: none !important;
+  }
+  
+  [data-testid="stMetricValue"] {
+    animation: none !important;
+  }
+  
+  .alert-banner {
+    animation: none !important;
+  }
+  
+  [data-testid="stSidebar"] {
+    transition: none !important;
+  }
+}
+
+/* ========== Focus Visible ========== */
+:focus-visible {
+  outline: 2px solid var(--primary, #C46A2B) !important;
+  outline-offset: 2px !important;
+}
+
+.stButton > button:focus-visible,
+.stSelectbox > div > div:focus-within,
+.stMultiSelect > div > div:focus-within,
+.stTextInput > div > div > input:focus-visible {
+  outline: 2px solid var(--primary, #C46A2B) !important;
+  outline-offset: 2px !important;
+}
+
+/* ========== Selection ========== */
+::selection {
+  background-color: var(--primary, #C46A2B) !important;
+  color: white !important;
+}
+
+/* ========== Custom Scrollbar ========== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary, #E8EEE9);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted, #7A8882);
+  border-radius: 4px;
+  border: 2px solid var(--bg-primary, #E8EEE9);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary, #C46A2B);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--bg-primary, #E8EEE9);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-muted, #7A8882) var(--bg-primary, #E8EEE9);
+}
+
+/* ========== Sidebar Content Fix ========== */
+/* Garantir que textos não sobreponham */
+[data-testid="stSidebar"] * {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  white-space: normal !important;
+}
+
+[data-testid="stSidebar"] .stMarkdown,
+[data-testid="stSidebar"] .stCaption,
+[data-testid="stSidebar"] label,
+[data-testid="stSidebar"] .stSelectbox label,
+[data-testid="stSidebar"] .stMultiSelect label {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  max-width: 100% !important;
+}
+
+/* Fix para textos longos na sidebar */
+[data-testid="stSidebar"] .stSelectbox > div > div {
+  max-width: 100% !important;
+}
+
+[data-testid="stSidebar"] .stMultiSelect > div > div {
+  max-width: 100% !important;
+}
+
+/* Garantir espaçamento correto entre itens da sidebar */
+[data-testid="stSidebar"] .stMarkdown + .stMarkdown,
+[data-testid="stSidebar"] .stSelectbox + .stSelectbox,
+[data-testid="stSidebar"] .stMultiSelect + .stMultiSelect,
+[data-testid="stSidebar"] .stButton + .stButton,
+[data-testid="stSidebar"] .stExpander + .stExpander {
+  margin-top: 0.5rem !important;
+}
+
+/* Sidebar header fixo */
+[data-testid="stSidebar"] > div:first-child {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+  border-bottom: 1px solid var(--sidebar-border, #D0DAD4) !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Fix para sidebar toggle button não sobrepor conteúdo */
+.sidebar-toggle-btn {
+  position: fixed !important;
+  z-index: 1002 !important;
+}
+
+@media (min-width: 769px) {
+  .sidebar-toggle-btn {
+    display: none !important;
+  }
+}
+
+/* Garantir que main content não fique atrás da sidebar no mobile */
+@media (max-width: 768px) {
+  .main {
+    padding-left: 0 !important;
+  }
+  
+  .main .block-container {
+    margin-left: 0 !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* Fix para gráfico Plotly responsivo */
+.js-plotly-plot .plotly {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Fix para containers de métricas em grid */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .stHorizontalBlock > div {
+    flex: 1 1 calc(50% - 0.5rem) !important;
+    min-width: 180px !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .stHorizontalBlock > div {
+    flex: 1 1 auto !important;
+    min-width: 200px !important;
+  }
+}
