@@ -385,7 +385,7 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 
 ## 👨‍💻 Autor
 
-Desenvolvido como parte de um trabalho acadêmico para análise de churn em clientes B2B do setor de telecomunicações.
+Desenvolvido para análise de churn em clientes B2B do setor de telecomunicações.
 
 ---
 
